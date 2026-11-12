@@ -9,3 +9,5 @@ export default function escapeStringRegexp(string) {
 		.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
 		.replace(/-/g, '\\x2d');
 }
+
+export {escapeStringRegexp};

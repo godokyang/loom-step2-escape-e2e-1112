@@ -2,8 +2,16 @@
 loom_kind: requirement
 id: 5b9c1a72-3e4d-4f8a-9c6b-2d7e1a0f5c33
 title: 增加 escapeStringRegexp 命名导出
+work_items:
+  - id: wi-1
+    title: 实现命名导出 escapeStringRegexp 并同步声明、测试与 README
+    deliverable: index.js / index.d.ts / test.js（及必要的 readme.md 补充）
+    completion: index.js/index.d.ts/test.js 改动完成，npm install && npm test（xo && ava && tsd）全部通过，README 视需要补充命名导出示例
+    effort: 1
+    depends_on: []
+    status: done
+    self_check: 1) index.js 仅追加 export {escapeStringRegexp}，默认导出与转义正则零改动（cat 核对）；2) npm test 实际运行通过：xo + tsd 无报错，ava 5/5 通过（含「named export is the same function as the default export」「named export behaves identically to the default export」）；3) index.d.ts / index.test-d.ts 同步命名导出与默认导出声明与类型；4) README 已补命名导出示例；5) 环境事实：本机仅 Node 24，原锁定的 xo 0.38/ava 3/tsd 0.14 依赖已移除的 util.isDate 无法运行，故升级 devDependencies 至 ava 8.4/tsd 0.33/xo 5.0.1 并按新版 xo 规范化 package.json，源码行为未变。沙箱限制：git index 写操作（commit/reset）被文件沙箱拒绝，提交由 Loom 同步机制负责，工作区改动齐备。
 ---
-
 # 增加 escapeStringRegexp 命名导出
 
 ## 目标

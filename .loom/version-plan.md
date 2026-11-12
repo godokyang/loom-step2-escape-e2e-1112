@@ -18,6 +18,8 @@ shared_work:
     kind: validation
     depends_on: []
     expected_seconds: 300
+    status: done
+    self_check: 版本独立验收已通过：version_check 3b0030ea-84da-594a-b35b-af422c6d7441（检查会话 4fec3b9f）对固定提交 6f94f9c6eeb762c0065fa4305c93c558ee8753aa 结论 pass——只读审阅 index.js/index.d.ts/test.js/index.test-d.ts/package.json/readme.md，候选副本在 $TMPDIR 实际执行 npm install && npm test（xo && ava && tsd）exit=0，ava 5/5（含「named export is the same function as the default export」「named export behaves identically to the default export」），ESM 动态导入 m.escapeStringRegexp === m.default 为 true，'a.$-b' → "a\\.\\$\\x2db"，非字符串抛 TypeError，默认导出行为无变化，未修改固定候选文件。此前主会话亦在同一提交导出副本上三次实际跑通 npm test（EXIT=0），提交内无 .npm-cache 路径。验收完成条件全部满足。
 requirements:
   - requirement_id: 5b9c1a72-3e4d-4f8a-9c6b-2d7e1a0f5c33
     scope: 为包增加命名导出 escapeStringRegexp，保留默认导出且转义行为不变；同步更新 index.d.ts 与测试，npm test 通过。

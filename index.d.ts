@@ -14,3 +14,4 @@ new RegExp(escapedString);
 ```
 */
 export default function escapeStringRegexp(string: string): string;
+export {escapeStringRegexp};
